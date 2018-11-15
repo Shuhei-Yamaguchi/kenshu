@@ -7,6 +7,7 @@ def Help():
 def Run(ct,*args):
   r = 0.05
   #yz 平面で半径 r の円を描きたい
+  #aaaa
   x = list(ct.robot.FK())
   x1 = copy.deepcopy(x)
   x1[1] -= r
@@ -31,7 +32,6 @@ def Run(ct,*args):
    x_traj.append(x2)
    #x_traj へ追加
   print t_traj
-  #traj がどういう内容になってるか実行時に確認してみてください
   print x_traj  
   ct.robot.FollowXTraj(x_traj, t_traj)
   #実行
