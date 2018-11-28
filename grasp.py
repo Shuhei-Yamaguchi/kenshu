@@ -14,7 +14,6 @@ def Run(ct,*args):
   z=0.19
   thick=0.05
   ct.robot.MoveToX([0.4, y, z, 0.0, 0.70709699483067157, 0.0, 0.70711656736701733],t1, blocking=True)
-  print "b"
   rospy.sleep(t2)
   ct.robot.MoveToX([x, y, z, 0.0, 0.70709699483067157, 0.0, 0.70711656736701733],3.0,blocking=True) #目標物のｘ，ｙ，ｚ座標を狙って移動します
   rospy.sleep(t2)
