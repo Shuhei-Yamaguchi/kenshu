@@ -5,8 +5,8 @@ def Help():
   return '''Template of script.
   Usage: template'''
 def Run(ct,*args):
-  t1=0.5
-  t2=0.5
+  t1=8
+  t2=3
 
   def quaternion(axis,angle) :
 	return [i*math.sin(angle/2) for i in axis]+[math.cos(angle/2)]
@@ -62,19 +62,17 @@ def Run(ct,*args):
    rospy.sleep(t2)
 
   def moveq1():
-   ct.robot.MoveToX([0.45,0,0.5]+q1, t1,blocking=True)#元の位置に戻ります
+   ct.robot.MoveToQ([0.05448528510886472, 0.26371635610029004, -0.06798933545049374, -1.4543613652332334, -0.01759938527288114, -1.4220975441526043, 0.014184837811154748],t1,blocking=True)#元の位置に戻ります
    rospy.sleep(t2)
 
-  def moveq3():
-   ct.robot.MoveToX([0.45,0,0.5]+q3, t1,blocking=True)#元の位置に戻ります
-   rospy.sleep(t2)
 
   def move0():
-   ct.robot.MoveToX([0.45,0,0.5,0, 0.70709710634839928, 0, 0.7071164558412808],t1,blocking=True)#元の位置に戻ります
+   ct.robot.MoveToQ([-0.02225359399919708, 0.027608916799549812, 0.022566861740566175, -2.2001428621168677, -0.00047802839581177894, 0.6569213757903858, 0.0010121492739857683],t1,blocking=True)#元の位置に戻ります
    rospy.sleep(t2)
 
 #ここから実行
   move0()
+  print q1
   for k in range(2):#とりあえず４段積むことにしました
    for i in range(3):
     pickup(6*k+i)
