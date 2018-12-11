@@ -33,36 +33,36 @@ def Run(ct,*args):
    rospy.sleep(t2)
    ct.robot.OpenGripper()
    rospy.sleep(t2)
-   ct.robot.MoveToX([x1,y1+a*w,z1]+q3,t1,blocking=True)#一回ごとにwだけｙ軸側に拾う位置をずらします
+   ct.robot.MoveToXI([x1,y1+a*w,z1]+q3,t1,blocking=True)#一回ごとにwだけｙ軸側に拾う位置をずらします
    rospy.sleep(t2)
    ct.robot.MoveGripper(thick)
    rospy.sleep(t2)
-   ct.robot.MoveToX([x1,y1+a*w,z1+0.1]+q3,t1, blocking=True)
+   ct.robot.MoveToXI([x1,y1+a*w,z1+0.1]+q3,t1, blocking=True)
    rospy.sleep(t2)
 
 #段が変わるごとに置く位置をz軸方向にhだけずらします
   def move1(a,b):#姿勢１の状態で積む位置に移動し置く
    ct.robot.MoveToX([x2+w*a,y2,z2+0.1+2*b*h]+q1,t1,blocking=True)#同じ段では一回ごとにwだけx軸に沿って置く位置をずらします
    rospy.sleep(t2)
-   ct.robot.MoveToX([x2+w*a,y2,z2+2*b*h]+q1,t1,blocking=True) 
+   ct.robot.MoveToXI([x2+w*a,y2,z2+2*b*h]+q1,t1,blocking=True) 
    rospy.sleep(t2)
    ct.robot.OpenGripper()
    rospy.sleep(t2)
-   ct.robot.MoveToX([x2+w*a,y2,z2+0.1+2*b*h]+q1,t1,blocking=True) 
+   ct.robot.MoveToXI([x2+w*a,y2,z2+0.1+2*b*h]+q1,t1,blocking=True) 
    rospy.sleep(t2)
 
   def move3(a,b): #姿勢３の状態で積む位置に移動し置く
    ct.robot.MoveToX([x2,y2+w*a,z2+0.1+(1+2*b)*h]+q3,t1,blocking=True)#同じ段では一回ごとにwだけy軸に沿って置く位置をずらします
    rospy.sleep(t2)
-   ct.robot.MoveToX([x2,y2+w*a,z2+(1+2*b)*h]+q3,t1,blocking=True) 
+   ct.robot.MoveToXI([x2,y2+w*a,z2+(1+2*b)*h]+q3,t1,blocking=True) 
    rospy.sleep(t2)
    ct.robot.OpenGripper()
    rospy.sleep(t2)
-   ct.robot.MoveToX([x2,y2+w*a,z2+0.1+(1+2*b)*h]+q3,t1,blocking=True) 
+   ct.robot.MoveToXI([x2,y2+w*a,z2+0.1+(1+2*b)*h]+q3,t1,blocking=True) 
    rospy.sleep(t2)
 
   def moveq1():
-   ct.robot.MoveToQ([0.05448528510886472, 0.26371635610029004, -0.06798933545049374, -1.4543613652332334, -0.01759938527288114, -1.4220975441526043, 0.014184837811154748],t1,blocking=True)#元の位置に戻ります
+   ct.robot.MoveToQ([2.6275370439141383, -0.31581660711503085, -2.4742835903093434, -1.4535463123185441, -2.9464209645350925, 1.4393073683000435, 1.4161135201399193],t1,blocking=True)#元の位置に戻ります
    rospy.sleep(t2)
 
 
